@@ -1,0 +1,13 @@
+<h1>顧客編集画面</h1>
+
+<%=form_with model:@customer , url: admin_update_customers_path(@customer.id),local:true do |f| %>
+
+<p>姓 : <%=f.text_field:last_name %></p>
+<p>名 : <%=f.text_field:first_name %></p>
+<p>セイ : <%=f.text_field:last_name_kana %></p>
+<p>メイ : <%=f.text_field:first_name_kana %></p>
+<p>会員ステータス : <%=f.text_field:is_deleted %></p>
+
+<%=f.submit'保存'%>
+<% end %>
+<%=link_to "会員一覧へ",admin_customers_path %>

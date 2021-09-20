@@ -1,0 +1,18 @@
+<h1>登録情報変更</h1>
+
+<%=form_with model:@customer, url: customer_path(@customer.id),local:true do |f| %>
+<p>氏名 : <%=f.text_field :last_name %><%=f.text_field :first_name %></p>
+
+<p>シメイ : <%=f.text_field :last_name_kana %><%=f.text_field :first_name_kana %></p>
+
+<p>メール : <%=f.text_field :email %></p>
+
+<p>郵便番号 : <%=f.text_field :postal_code %></p>
+
+<p>住所 : <%=f.text_field :address %></p>
+
+<p>電話番号 : <%=f.text_field :telephone_number %></p>
+
+<%=f.submit"Update" %>
+<% end %>
+<%=link_to"退会画面へ",customers_unsubscribe_path %>

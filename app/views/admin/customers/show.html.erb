@@ -1,0 +1,17 @@
+<h1>顧客詳細画面</h1>
+
+<h4>姓</h4>
+<%= @customer.last_name %>
+
+<h4>名</h4>
+<%= @customer.first_name %>
+
+<h4>メール</h4>
+<%= @customer.email %>
+
+<h4>会員ステータス</h4>
+<%= @customer.is_deleted %>
+
+<br>
+<%=link_to "会員情報編集画面へ",edit_admin_customer_path(@customer.id) %>
+<%=link_to "会員一覧へ",admin_customers_path %>

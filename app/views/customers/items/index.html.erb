@@ -1,0 +1,21 @@
+<h1>商品一覧</h1>
+
+<table>
+    <tr>
+        <th>商品画像</th>
+        <th>商品名</th>
+        <th>商品説明</th>
+        <th>税抜価格</th>
+        <th></th>
+    </tr>
+<% @items.each do |item| %>
+    <tr>
+        <th></th>
+        <th><%=item.name%></th>
+        <th><%=item.introduction%></th>
+        <th><%=item.price%></th>
+        <th><%=link_to"商品詳細へ",item_path(item.id) %></th>
+    </tr>
+<% end %>
+
+</table>
