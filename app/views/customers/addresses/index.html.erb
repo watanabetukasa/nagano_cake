@@ -1,0 +1,44 @@
+<h1>配送先登録情報</h1>
+
+<% @addresses.each do |address| %>
+
+  <p>名前</p>
+  <%=address.name %>
+
+  <p>郵便番号</p>
+  <%=address.postal_code %>
+
+  <p>配送先住所</p>
+  <%=address.address %>
+  <br>
+  <%=link_to"編集へ",edit_address_path(address.id)%>
+<% end %>
+
+
+
+
+
+
+
+
+<h1>配送先登録</h1>
+
+<%=form_with model:@address, url: addresses_path,local:true do |f| %>
+
+  <p>名前</p>
+  <%=f.text_field :name %>
+
+  <p>郵便番号</p>
+  <%=f.text_field :postal_code %>
+
+  <p>配送先住所</p>
+  <%=f.text_area :address %>
+
+  <br>
+  <%=f.submit "登録" %>
+
+<% end %>
+
+
+
+

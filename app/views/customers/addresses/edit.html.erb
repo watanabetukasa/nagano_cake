@@ -1,0 +1,18 @@
+<h1>配送先編集</h1>
+
+<%=form_with model:@address, url: address_path(@address.id),local:true do |f| %>
+
+  <p>名前</p>
+  <%=f.text_field:name %>
+
+  <p>郵便番号</p>
+  <%=f.text_field:postal_code %>
+
+  <p>配送先住所</p>
+  <%=f.text_area:address %>
+
+  <br>
+  <%=f.submit"変更" %>
+<% end %>
+<%=link_to"一覧画面へ",addresses_path %>
+<%=link_to"配送先情報　削除",address_path(@address.id),method: :delete %>

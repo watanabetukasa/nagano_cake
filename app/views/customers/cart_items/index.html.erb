@@ -1,0 +1,14 @@
+<h1>カート内商品一覧</h1>
+
+<%=form_with　model:@cart_item, url: cart_item_path(@cart_item.id),local:true do |f| %>
+
+    <p>商品名</p>
+    <%=f.text_field:name %>
+    <p>価格</p>
+    <%=f.text_field:price %>
+    <p>商品説明</p>
+    <%=f.text_field:introduction %>
+    <p>個数</p>
+
+<%=f.submit'保存' %>
+<% end %>
