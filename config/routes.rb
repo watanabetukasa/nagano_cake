@@ -13,8 +13,12 @@ Rails.application.routes.draw do
     get 'customers/unsubscribe' => 'customers#unsubscribe', as:'customers_unsubscribe'
     get '/customers/my_page' => 'customers#show'
     resources :addresses, only:[:index,:edit,:create,:update,:destroy]
-    delete '/cart_items/destroy_all' => 'cart_items#destroy_all', as:'cart_items_destroy_all'
-    resources :cart_items, only:[:index,:update,:create,:destoroy]
+    delete '/cart_items/all_destroy' => 'cart_items#all_destroy', as:'cart_items_all_destroy'
+    resources :cart_items, only:[:index,:update,:create,:destroy]
+    resources :orders, only:[:index,:new,:create,:show]
+    post '/orders/confirm' => 'orders#confirm', as:'orders_confirm'
+    get '/orders/complete' => 'orders#complete', as:'orders_complete'
+    
   end
 
   devise_for(

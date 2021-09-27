@@ -1,14 +1,29 @@
 <h1>カート内商品一覧</h1>
 
-<%=form_with　model:@cart_item, url: cart_item_path(@cart_item.id),local:true do |f| %>
+<%=link_to "カートを空にする", cart_items_all_destroy_path, method: :delete %>
 
-    <p>商品名</p>
-    <%=f.text_field:name %>
-    <p>価格</p>
-    <%=f.text_field:price %>
-    <p>商品説明</p>
-    <%=f.text_field:introduction %>
-    <p>個数</p>
+<table>
+    <tr>
+        <th>商品名</th>
+        <th>税込価格</th>
+        <th>数量</th>
+        <th>小計</th>
+    </tr>
+    <% @cart_items.each do |cart_item| %>
+    <tr>
+        <th><%=cart_item.item.name %></th>
+        <th><%=cart_item.item.with_tax_price %></th>
+        <th>
+            <%=form_with model:cart_item, url: cart_item_path(cart_item), local:true do |f| %>
+            <%=f.select :amount, [['1個',1],['2個',2],['3個',3],['4個',4],['5個',5],['6個',6],['7個',7],['8個',8],['9個',9]] %>
+            <%=f.submit'変更' %>
+            <% end %>
+        </th>
+        <th><%=cart_item.subtotal %>円</th>
+        <th><%=link_to "削除する",cart_item_path(cart_item.id), method: :delete %></th>
 
-<%=f.submit'保存' %>
-<% end %>
+    </tr>
+    <% end %>
+    <br>
+</table>
+<%=link_to"注文情報入力へ",new_order_path %>
