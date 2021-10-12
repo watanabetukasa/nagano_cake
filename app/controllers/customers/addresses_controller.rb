@@ -1,4 +1,5 @@
 class Customers::AddressesController < ApplicationController
+before_action :authenticate_customer!
 
   def index
     @address = Address.new
@@ -11,9 +12,9 @@ class Customers::AddressesController < ApplicationController
     if @address.save
       redirect_to addresses_path
     else
+      render 'index'
       @address = Address.new
       @addresses = Address.all
-      render 'index'
     end
   end
 

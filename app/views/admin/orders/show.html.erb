@@ -1,5 +1,77 @@
-<h1>注文詳細画面</h1>
+<h1>注文詳細一覧</h1>
 
-<p>制作ステータス</p>
+<div class="orders">
+  <table border="1">
+    <tr>
+      <th>購入者</th>
+      <td><%=link_to "#{@order.customer.last_name} #{@order.customer.first_name}" ,admin_customer_path(@order.customer.id) %></td>
+    </tr>
+    <tr>
+      <th>注文日</th>
+      <td><%= @order.created_at.strftime('%Y/%m/%d') %></td>
+    </tr>
+    <tr>
+      <th>配送先</th>
+      <td><%= @order.postal_code %><%= @order.address %><br>
+          <%= @order.name %>
+      </td>
+    </tr>
+  </table>
+  <h4></h4>
 
-<p>注文ステータス</p>
+  <h4></h4>
+
+  <h4></h4>
+
+
+  <h4>支払方法<%= @order.payment_method %></h4>
+</div>
+
+<div class="container">
+  <div class="row">
+
+  <div class="col-lg-10">
+<table class="table table-striped">
+  <tr>
+    <th>商品名</th>
+    <th>単価</th>
+    <th>数量</th>
+    <th>小計</th>
+  </tr>
+
+  <% @sum = 0 %>
+  <% @order_details.each do |order_detail| %>
+  <tr>
+    <th><%=order_detail.item.name %></th>
+    <th><%=order_detail.price %>円</th>
+    <th><%=order_detail.amount %></th>
+    <th><%=(order_detail.price) * (order_detail.amount) %>円</th>
+    <% @sum += (order_detail.price) * (order_detail.amount) %>
+  </tr>
+  <% end %>
+</table>
+</div>
+
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-4">
+      <table class="table table-striped">
+        <tr>
+          <th>合計金額</th>
+          <th><%= @sum %></th>
+        </tr>
+        <tr>
+          <th>送料</th>
+          <th><%= 800 %></th>
+        </tr>
+        <tr>
+          <th>請求金額合計</th>
+          <th><%= @sum += 800 %></th>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

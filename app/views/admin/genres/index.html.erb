@@ -1,20 +1,29 @@
-<header>
-  <%=link_to"商品一覧へ",admin_items_path %>
-</header>
+<h1>ジャンル一覧・追加</h1>
 
-<h1>ジャンル管理画面</h1>
-
-<h2>ジャンル一覧</h2>
-<% @genres.each do |genre| %>
-<h4>ジャンル名 : <%=genre.name %></h4>
-<%=link_to "編集",edit_admin_genre_path(genre)%>
-<% end %>
-
-<h2>ジャンルデータ登録</h2>
+<div class="genre">
 <%= form_with model:@genre , url: admin_genres_path ,local:true do |f| %>
 
-  <h4>ジャンル名</h4>
-  <%=f.text_field:name %>
+  <h4>ジャンル名
+    <%=f.text_field:name %>
+    <%=f.submit'登録' %>
+    <% end %>
+  </h4>
 
-  <br><%=f.submit'登録' %>
-<% end %>
+
+  <table class="genre-table">
+    <tr class="genre-table-title">
+      <th class="genre-table-top">
+        ジャンル
+      </th>
+      <th></th>
+    </tr>
+    <% @genres.each do |genre| %>
+    <tr>
+      <th><%=genre.name %></th>
+      <td><%=link_to "編集する",edit_admin_genre_path(genre) ,class: 'btn' %></td>
+    </tr>
+    <% end %>
+  </table>
+</div>
+
+

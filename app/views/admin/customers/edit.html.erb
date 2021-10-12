@@ -1,13 +1,46 @@
 <h1>顧客編集画面</h1>
 
-<%=form_with model:@customer , url: admin_update_customers_path(@customer.id),local:true do |f| %>
+  <%=form_with model:@customer , url: admin_update_customers_path(@customer.id),local:true do |f| %>
+  <div class="container">
+    <div class="row">
 
-<p>姓 : <%=f.text_field:last_name %></p>
-<p>名 : <%=f.text_field:first_name %></p>
-<p>セイ : <%=f.text_field:last_name_kana %></p>
-<p>メイ : <%=f.text_field:first_name_kana %></p>
-<p>会員ステータス : <%=f.text_field:is_deleted %></p>
+      <div class="col-lg-10">
+        <table class="table table-striped">
+          <tr>
+              <th>氏名</th>
+              <th><%= f.text_field:last_name %>  <%=f.text_field:first_name %></th>
+          </tr>
+          <tr>
+              <th>フリガナ</th>
+              <th><%= f.text_field:last_name_kana %>  <%=f.text_field:first_name_kana %></th>
+          </tr>
+          <tr>
+              <th>郵便番号</th>
+              <th><%= f.text_field:postal_code %></th>
+          </tr>
+          <tr>
+              <th>住所</th>
+              <th><%= f.text_area:address %></th>
+          </tr>
+          <tr>
+              <th>電話番号</th>
+              <th><%= f.text_field:telephone_number %></th>
+          </tr>
+          <tr>
+              <th>メール</th>
+              <th><%= f.text_field:email%></th>
+          </tr>
+          <tr>
+              <th>会員</th>
+              <th><%= f.select :is_deleted, [["会員","false"], ["退会済み","true"]], calss:"form-control" %></th>
+          </tr>
+        </table>
+        <div class="col-md-4"></div>
 
-<%=f.submit'保存'%>
-<% end %>
-<%=link_to "会員一覧へ",admin_customers_path %>
+
+        <%=f.submit'保存'%>
+        <% end %>
+        </div>
+
+  </div>
+</div>

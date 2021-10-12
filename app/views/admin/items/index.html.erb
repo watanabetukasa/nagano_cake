@@ -1,25 +1,23 @@
 <h1>商品一覧</h1>
 
-<h4>商品新規登録</h4>
-<%=link_to "新規登録", new_admin_item_path %>
-
-<table>
-    <tr>
-        <th>商品画像</th>
+<table class="item-table">
+    <tr class="item-table-title">
+        <th>商品ID</th>
         <th>商品名</th>
         <th>商品説明</th>
         <th>税抜価格</th>
-        <th></th>
     </tr>
 <% @items.each do |item| %>
     <tr>
-        <th></th>
-        <th><%=item.name%></th>
-        <th><%=item.introduction%></th>
-        <th><%=item.price%></th>
-        <th></th>
-        <th><%=link_to"詳細へ",admin_item_path(item.id) %></th>
+        <td><%=item.id%></td>
+        <td><u><%=link_to item.name,admin_item_path(item.id) %></u></td>
+        <td><%=item.introduction%></td>
+        <td><%=item.price%>円</td>
     </tr>
 <% end %>
 
 </table>
+
+<div class="item-new">
+    <%=link_to "新規登録", new_admin_item_path, class: 'btn' %>
+</div>

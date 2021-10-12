@@ -15,10 +15,11 @@ Rails.application.routes.draw do
     resources :addresses, only:[:index,:edit,:create,:update,:destroy]
     delete '/cart_items/all_destroy' => 'cart_items#all_destroy', as:'cart_items_all_destroy'
     resources :cart_items, only:[:index,:update,:create,:destroy]
-    resources :orders, only:[:index,:new,:create,:show]
-    post '/orders/confirm' => 'orders#confirm', as:'orders_confirm'
-    get '/orders/complete' => 'orders#complete', as:'orders_complete'
-    
+    #post '/orders/new' => 'orders#new'
+    post '/orders/confirm' => 'orders#confirm'
+    get '/orders/complete' => 'orders#complete'
+    resources :orders, only:[:index,:create,:new,:show]
+
   end
 
   devise_for(

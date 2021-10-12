@@ -1,29 +1,50 @@
-<h1>カート内商品一覧</h1>
+<h1>ショッピングカート</h1>
 
-<%=link_to "カートを空にする", cart_items_all_destroy_path, method: :delete %>
+<div class="cart-item-link">
+    <%=link_to "カートを空にする", cart_items_all_destroy_path, method: :delete , class: 'btn' %>
+</div>
 
-<table>
-    <tr>
+<div class="cart">
+<table border="1">
+    <tr class="cart_item">
         <th>商品名</th>
         <th>税込価格</th>
         <th>数量</th>
         <th>小計</th>
+        <th></th>
     </tr>
+    <% @sum = 0 %>
     <% @cart_items.each do |cart_item| %>
     <tr>
-        <th><%=cart_item.item.name %></th>
-        <th><%=cart_item.item.with_tax_price %></th>
-        <th>
+        <td><%=cart_item.item.name %></td>
+        <td><%=cart_item.item.with_tax_price %></td>
+        <td>
             <%=form_with model:cart_item, url: cart_item_path(cart_item), local:true do |f| %>
             <%=f.select :amount, [['1個',1],['2個',2],['3個',3],['4個',4],['5個',5],['6個',6],['7個',7],['8個',8],['9個',9]] %>
             <%=f.submit'変更' %>
             <% end %>
-        </th>
-        <th><%=cart_item.subtotal %>円</th>
-        <th><%=link_to "削除する",cart_item_path(cart_item.id), method: :delete %></th>
-
+        </td>
+        <td><%=cart_item.subtotal %>円</td>
+        <% @sum += cart_item.subtotal %>
+        <td><%=link_to "削除する",cart_item_path(cart_item.id), method: :delete %></td>
     </tr>
     <% end %>
     <br>
 </table>
-<%=link_to"注文情報入力へ",new_order_path %>
+</div>
+
+<table border="1" class="total-payment">
+    <tr>
+        <th class="cart_item">合計金額</th>
+        <td><%= @sum %>円</td>
+    </tr>
+</table>
+
+<div class="cart-item-button">
+    <%=link_to"買い物を続ける",root_path, class: 'btn' %>
+</div>
+<div class="cart-item-button">
+    <% if @cart_items[0] != nil %>
+        <%=link_to"注文情報入力へ",new_order_path, class: 'btn' %>
+    <% end %>
+</div>

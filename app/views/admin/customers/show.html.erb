@@ -1,17 +1,34 @@
 <h1>顧客詳細画面</h1>
 
-<h4>姓</h4>
-<%= @customer.last_name %>
-
-<h4>名</h4>
-<%= @customer.first_name %>
-
-<h4>メール</h4>
-<%= @customer.email %>
-
-<h4>会員ステータス</h4>
-<%= @customer.is_deleted %>
+<table class="customer-detail">
+  <tr>
+      <th>氏名</th>
+      <th><%= @customer.last_name %>  <%= @customer.first_name %></th>
+  </tr>
+  <tr>
+      <th>郵便番号</th>
+      <th><%= @customer.postal_code %></th>
+  </tr>
+  <tr>
+      <th>住所</th>
+      <th><%= @customer.address %></th>
+  </tr>
+  <tr>
+      <th>電話番号</th>
+      <th><%= @customer.telephone_number %></th>
+  </tr>
+  <tr>
+      <th>メール</th>
+      <th><%= @customer.email %></th>
+  </tr>
+  <tr>
+      <th>会員ステータス</th>
+      <th><%= @customer.is_deleted %></th>
+  </tr>
+</table>
 
 <br>
-<%=link_to "会員情報編集画面へ",edit_admin_customer_path(@customer.id) %>
-<%=link_to "会員一覧へ",admin_customers_path %>
+<div class="customer-link">
+  <%=link_to "編集する",edit_admin_customer_path(@customer.id) ,class: 'btn' %></button>
+  <%=link_to "注文履歴一覧を見る",admin_root_path ,class: 'btn btn-default' %></button>
+</div>

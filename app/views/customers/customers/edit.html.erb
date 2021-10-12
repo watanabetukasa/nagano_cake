@@ -1,18 +1,36 @@
 <h1>登録情報変更</h1>
 
-<%=form_with model:@customer, url: customer_path(@customer.id),local:true do |f| %>
-<p>氏名 : <%=f.text_field :last_name %><%=f.text_field :first_name %></p>
+<div class="customer">
+<table>
+  <%=form_with model:@customer, url: customer_path(@customer.id),local:true do |f| %>
+  <tr>
+    <th>氏名</th>
+    <td><%=f.text_field :last_name %><%=f.text_field :first_name %></td>
+  </tr>
+  <tr>
+    <th>シメイ</th>
+    <td><%=f.text_field :last_name_kana %><%=f.text_field :first_name_kana %></td>
+  </tr>
+  <tr>
+    <th>郵便番号</th>
+    <td><%=f.text_field :postal_code %></td>
+  </tr>
+  <tr>
+    <th>住所</th>
+    <td><%=f.text_area :address %></td>
+  </tr>
+  <tr>
+    <th>電話番号</th>
+    <td><%=f.text_field :telephone_number %></td>
+  </tr>
+  <tr>
+    <th>メール</th>
+    <td><%=f.text_field :email %></td>
+  </tr>
+</table>
 
-<p>シメイ : <%=f.text_field :last_name_kana %><%=f.text_field :first_name_kana %></p>
 
-<p>メール : <%=f.text_field :email %></p>
-
-<p>郵便番号 : <%=f.text_field :postal_code %></p>
-
-<p>住所 : <%=f.text_field :address %></p>
-
-<p>電話番号 : <%=f.text_field :telephone_number %></p>
-
-<%=f.submit"Update" %>
-<% end %>
-<%=link_to"退会画面へ",customers_unsubscribe_path %>
+  <%=f.submit"編集内容を保存" %>
+  <% end %>
+  <%=link_to"退会する",customers_unsubscribe_path %>
+</div>

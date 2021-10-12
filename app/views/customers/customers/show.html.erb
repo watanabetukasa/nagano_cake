@@ -1,29 +1,42 @@
 <h1>マイページ</h1>
+<div class="mypage">
+<h3>登録情報  <%=link_to"編集する",edit_customer_path(@customer.id)%></h3>
 
-<p>氏名 :
-  <%=@customer.last_name%>
-  <%=@customer.first_name%>
-</p>
-
-<p>メールアドレス :
-  <%=@customer.email%>
-</p>
-
-<p>郵便番号 :
-<%=@customer.postal_code%>
-</p>
-
-<p>住所 :
-<%=@customer.address%>
-</p>
-
-<p>電話番号 :
-<%=@customer.telephone_number%>
-</p>
-
-<%=link_to"配送先一覧へ",addresses_path %>
-
-
+<table border="1">
+  <tr>
+    <th>氏名</th>
+    <td><%=@customer.last_name%><%=@customer.first_name%></td>
+  </tr>
+  <tr>
+    <th>カナ</th>
+    <td><%=@customer.last_name_kana %><%=@customer.first_name_kana %></td>
+  </tr>
+  <tr>
+    <th>郵便番号</th>
+    <td><%=@customer.postal_code%></td>
+  </tr>
+  <tr>
+    <th>住所</th>
+    <td><%=@customer.address%></td>
+  </tr>
+  <tr>
+    <th>電話番号</th>
+    <td><%=@customer.telephone_number%></td>
+  </tr>
+  <tr>
+    <th>メールアドレス</th>
+    <td><%=@customer.email%></td>
+  </tr>
+</table>
 
 <br>
-<%=link_to"ユーザー情報編集へ",edit_customer_path(@customer.id)%>
+<table>
+  <tr class="order-list">
+    <th>配送先</th>
+    <td><%=link_to "一覧を見る",addresses_path, class: 'btn' %></td>
+  </tr>
+  <tr>
+    <th>注文履歴</th>
+    <td><%=link_to "一覧を見る",orders_path, class: 'btn' %></td>
+  </tr>
+</table>

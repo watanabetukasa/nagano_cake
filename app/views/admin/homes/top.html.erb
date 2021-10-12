@@ -1,9 +1,25 @@
-<header>
-  <li><%=link_to"ジャンル一覧へ", admin_genres_path %></li>
-</header>
-
-
-
-
 <h1>管理者トップページ</h1>
 
+<h1>注文詳細一覧</h1>
+
+<div class="container">
+  <div class="row">
+
+  <div class="col-lg-10">
+<table class="table table-striped">
+  <tr>
+    <th>購入日時</th>
+    <th>購入者</th>
+  </tr>
+
+  <% @orders.each do |order| %>
+  <tr>
+      <th><%=link_to (order.created_at.strftime('%Y/%m/%d')), admin_order_path(order.id) %></th>
+      <th><%=order.name %></th>
+  </tr>
+  <% end %>
+</table>
+</div>
+
+  </div>
+</div>

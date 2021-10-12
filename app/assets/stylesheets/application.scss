@@ -1,0 +1,304 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+ @import "bootstrap";
+
+body {
+  list-style: none;
+}
+
+header {
+  padding-top: 20px;
+  padding-right: 100px;
+}
+
+.about, .top {
+  margin-left: 300px;
+}
+li {
+  display: block;
+  float: right;
+  padding: 5px 10px;
+  padding: 0px 15px;
+  background-color: #00FFFF;
+}
+
+header button {
+  width: 130px;
+  height: 40px;
+  float: right;
+  margin-right: 10px;
+  background-color: #00FFFF;
+  border: none;
+  border-radius: 10px;
+}
+
+button {
+  width: 50px;
+  height: 25px;
+  float: right;
+  margin-right: 10px;
+  background-color: #00FFFF;
+  border: none;
+  border-radius: 10px;
+}
+
+h1 {
+  padding-top: 50px;
+  padding-left: 350px;
+  padding-bottom: 20px;
+}
+
+table {
+  width: 500px;
+}
+
+.customer-detail {
+  padding-left: 200px;
+  margin-left: 300px;
+}
+
+.customer-detail tr th {
+  font-size: 20px;
+  padding: 5px 0;
+}
+
+.customer-link {
+  margin-left: 300px;
+}
+
+.btn {
+  color: white;
+  background-color: #808080;
+  padding-right: 10px;
+}
+
+//管理者ジャンル
+.genre {
+  margin-left: 350px;
+}
+.genre-table {
+  width: 350px;
+  border-top: 1px solid black;
+  margin-top: 30px;
+}
+
+.genre-table th {
+  width: 50%;
+  border-top: 1px solid black;
+}
+
+.genre-table-top {
+  text-align: center;
+}
+
+.genre-table td {
+  border-top: 1px solid black;
+}
+
+.genre-table-title{
+  background-color: #C0C0C0;
+}
+
+//管理者ジャンル編集
+.genre-edit {
+  margin-left: 300px;
+}
+
+//管理者商品
+.item-table {
+  font-size: 15px;
+  margin-left: 250px;
+  width: 800px;
+  border-top: 1px solid black;
+  margin-top: 10px;
+}
+.item-table-title {
+  background-color: #C0C0C0;
+}
+
+.item-table th {
+  padding-left: 8px;
+}
+
+.item-table td {
+  padding-left: 8px;
+  padding-top: 5px;
+}
+
+.item-link {
+
+}
+
+.item-table tr{
+  border-top: 1px solid black;
+}
+.item-new {
+  margin-top: 40px;
+  margin-left: 350px;
+}
+
+.item-detail {
+  margin-left: 250px;
+  display: flex;
+}
+
+.item-detail-text {
+  margin-left: 15px;
+}
+
+.item-link {
+  margin-left: 350px;
+}
+
+.item-new {
+  margin-left: 300px;
+}
+
+.item-new-table td {
+  margin-top: 20px;
+}
+
+.item-edit {
+  margin-left: 300px;
+}
+
+
+.cart-item-link {
+  margin-left: 900px;
+}
+
+.cart {
+  margin-left: 300px;
+}
+
+.cart table {
+  width: 800px;
+}
+
+.cart_item {
+  background-color: #C0C0C0;
+}
+
+.total-payment {
+  width: 200px;
+  margin-top: 30px;
+  margin-left: 300px;
+}
+
+.cart-item-button {
+  margin-left: 300px;
+  margin-top: 10px;
+}
+
+//オーダー
+.order {
+  margin-left: 250px;
+}
+
+.orders {
+  margin-left: 350px;
+}
+
+.order-content {
+  margin-left: 30px;
+}
+
+.order-content-new {
+  padding-top: 10px;
+  margin-left: 30px;
+}
+.order-button {
+  margin-left: 100px;
+  margin-top: 10px;
+}
+
+.order-payment_method {
+  margin-top: 10px;
+  margin-left: 350px;
+  width: 150px;
+}
+.order-payment_method th {
+  background-color: #C0C0C0;
+}
+
+.order-pay-detail {
+  margin-top: 30px;
+  margin-left: 350px;
+}
+.order-pay-detail p {
+  margin-left: 30px;
+}
+
+.order-button {
+  margin-left: 400px;
+}
+h5 {
+  font-size: 40px;
+  color: #00FF00;
+  margin-top: 50px;
+  text-align: center;
+}
+
+.address {
+  margin-left: 350px;
+}
+
+.address-table {
+  margin-top: 10px;
+  width: 800px;
+}
+
+.address-edit {
+  margin-left: 350px;
+}
+
+.order-pay {
+  margin-left: 150px;
+}
+
+.order-detail {
+  display: flex;
+  flex-box: flex;
+}
+
+.order-table {
+  width: 150px;
+}
+.order-table th {
+  background-color: #00FF00;
+}
+.order-content {
+  margin-left: 250px;
+  margin-top: 30px;
+}
+
+.mypage {
+  margin-left: 350px;
+}
+
+.button {
+  margin-top: 0;
+  padding-top: 0;
+  margin-left: 50px;
+}
+
+.customer {
+  margin-left: 300px;
+}
+
+.destroy{
+  margin-left: 500px;
+}

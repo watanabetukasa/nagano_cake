@@ -1,4 +1,5 @@
 class Customers::CustomersController < ApplicationController
+before_action :authenticate_customer!
 
   def show
     @customer = current_customer
@@ -20,6 +21,8 @@ class Customers::CustomersController < ApplicationController
     reset_session
     redirect_to root_path
   end
+
+
 
   private
   def customer_params
